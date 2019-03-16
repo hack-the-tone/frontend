@@ -9,13 +9,19 @@
   border-top: 5px solid #1ea2b1;
 }
 
+.login div[role='progressbar'] {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
 .login .content {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 60vw;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .login .content h1 {
@@ -23,9 +29,10 @@
   padding: 10px 0;
 }
 
-.login .content div{
+.login .content div:first-child {
   margin-right: 10%;
 }
+
 
 .login:after,
 .login:before {

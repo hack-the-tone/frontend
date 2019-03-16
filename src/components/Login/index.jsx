@@ -1,6 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Button, Icon } from '@material-ui/core';
-import queryString from 'query-string'
+import LinearProgress from '@material-ui/core/LinearProgress';
+import queryString from 'query-string';
 
 import { BASE_URL } from '../../services/constants'
 import { TokenContext } from '../../contexts/token-context';
@@ -8,12 +9,14 @@ import { TokenContext } from '../../contexts/token-context';
 import './Login.css';
 
 const Login = ({ location, history }) => {
+    const [showProgressBar, setShowProgressBar] = useState(false);
     const { token, setToken } = useContext(TokenContext)
 
     useEffect(() => {
         const queryParams = queryString.parse(location.search);
 
         if (queryParams.code) {
+            setShowProgressBar(true);
             // const token = await fetch(`${BASE_URL}/mocks/token`, {
             //     method: "POST",
 
@@ -23,14 +26,18 @@ const Login = ({ location, history }) => {
             //     },
             //     body: { code: queryParams.code },
             // }).then(res => res.json());
-            console.log(token);
-            console.log(setToken('vasile'));
-            history.push('/topics')
+            setTimeout(() => {
+                setShowProgressBar(false)
+                console.log(token);
+                console.log(setToken('vasile'));
+                history.push('/topics')
+            }, 8000);
         }
     }, [location]);
 
     const handleLogin = async () => {
         try {
+            setShowProgressBar(true);
             const signInURI = await fetch(`${BASE_URL}/mocks/sign-in-uri`, {
                 method: "GET",
                 headers: {
@@ -52,12 +59,15 @@ const Login = ({ location, history }) => {
                     <h1>Welcome to E.ON</h1>
                     <p>This is an application for filling timesheets (Chronos).</p>
                 </div>
-
-                <Button className={'login-button'} variant="contained" size="large" color="default" onClick={handleLogin}>
-                    Login
+                <div>
+                    <Button className={'login-button'} variant="contained" size="large" color="default" onClick={handleLogin}>
+                        Login
                     <Icon>fingerprint</Icon>
-                </Button>
+                    </Button>
+
+                </div>
             </div>
+            {showProgressBar && <LinearProgress />}
         </div>
     );
 }
