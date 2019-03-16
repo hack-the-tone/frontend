@@ -21,7 +21,7 @@ function ComponentAppBar({ children }) {
   })
 
   return !token ? null : (
-    <div className={'eon-page'} >
+    <div>
       <AppBar position="static">
         <Toolbar className={'componentAppbar'}>
           <Link to="/">

@@ -23,3 +23,9 @@
 .container .row .resetTop div {
     margin-top: 0;
 }
+
+.eon-page .add-button{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}

@@ -25,19 +25,18 @@ const styles = theme => ({
     },
   });
 
-function SimpleModal({ classes, children }) {
-  const [isOpen, toggleModal] = useState(false);
+function SimpleModal({ classes, children, modal }) {
   const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, { closeModal: () => toggleModal(false) })
-  )
+    React.cloneElement(child, { closeModal: () => modal.toggleModal(false) })
+  );
+  console.log(modal)
   return (
     <div>
-      <Button onClick={() => { toggleModal(true) }}>Open Modal</Button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        open={isOpen}
-        onClose={() => { toggleModal(false) }}
+        open={modal.isOpen}
+        onClose={() => { modal.toggleModal(false) }}
       >
         <div style={getModalStyle()} className={classes.paper}>
           {childrenWithProps}
