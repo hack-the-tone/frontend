@@ -1,12 +1,9 @@
 .login {
-  background: #fff url("./background.jpg") no-repeat fixed center;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  border-top: 5px solid #1ea2b1;
 }
 
 .login div[role='progressbar'] {
@@ -33,9 +30,14 @@
   margin-right: 10%;
 }
 
+.eon-page {
+  background: #fff url("./background.jpg") no-repeat fixed center;
+  min-height: 100vh;
+  border-top: 5px solid #1ea2b1;
+}
 
-.login:after,
-.login:before {
+.eon-page:after,
+.eon-page:before {
   content: "";
   display: flex;
   position: absolute;
@@ -43,13 +45,13 @@
   top: 0px;
 }
 
-.login:before {
+.eon-page:before {
   width: 23%;
   left: 65%;
   background-color: #b00402;
 }
 
-.login:after {
+.eon-page:after {
   width: 12%;
   left: 88%;
   background-color: #ea1c0a;

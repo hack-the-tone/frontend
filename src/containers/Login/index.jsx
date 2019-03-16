@@ -65,7 +65,7 @@ const Login = ({ location, history }) => {
   };
 
   return (
-    <div className={'login'}>
+    <div className={'login eon-page'}>
       <div className={'content'}>
         <div>
           <h1>Welcome to E.ON</h1>
@@ -74,7 +74,7 @@ const Login = ({ location, history }) => {
         <div>
           <Button className={'login-button'} variant="contained" size="large" color="default" onClick={handleLogin}>
             Login
-                    <Icon>fingerprint</Icon>
+            <Icon>fingerprint</Icon>
           </Button>
 
         </div>
