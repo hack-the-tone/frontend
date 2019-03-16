@@ -3,6 +3,8 @@ import SimpleModal from '../../components/SimpleModal.jsx';
 import AddEntry from './AddEntry.jsx';
 import Snackbar from '@material-ui/core/Snackbar';
 
+//import Calendar from 'chronos-calendar';
+import Calendar from './Calendar.jsx';
 
 import './Dashboard.css'
 
@@ -68,6 +70,7 @@ const Dashboard = () => {
                 }}
                 message={<span id="message-id">Entries Submitted!</span>}
             />
+            <Calendar></Calendar>
             <SimpleModal>
                 <AddEntry projectsList={projectsList} activityTypesList={activityTypesList} triggerSnackBar={triggerSnackBar} />
             </SimpleModal>
