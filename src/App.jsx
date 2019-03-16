@@ -5,6 +5,7 @@ import Login from './components/Login'
 
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './containers/Dashboard';
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
               <Link to="/topics">Topics</Link>
@@ -25,7 +26,7 @@ class App extends Component {
 
           <hr />
           <Route exact path="/" component={Login} />
-          <Route path="/about" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/topics" component={Login} />
         </div>
       </Router>
