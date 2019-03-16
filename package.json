@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "query-string": "^6.4.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router": "^4.4.0",
