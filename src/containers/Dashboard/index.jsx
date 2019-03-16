@@ -3,6 +3,9 @@ import SimpleModal from '../../components/SimpleModal.jsx';
 import AddEntry from './AddEntry.jsx';
 import { Fab, Snackbar, Icon } from '@material-ui/core';
 
+//import Calendar from 'chronos-calendar';
+import Calendar from './Calendar.jsx';
+
 import './Dashboard.css'
 
 const projectsList = [
@@ -68,10 +71,12 @@ const Dashboard = () => {
                 }}
                 message={<span id="message-id">Entries Submitted!</span>}
             />
+
+            <Calendar></Calendar>
+
             <SimpleModal modal={{ isOpen, toggleModal }}>
                 <AddEntry projectsList={projectsList} activityTypesList={activityTypesList} triggerSnackBar={triggerSnackBar} />
             </SimpleModal>
-
 
             <Fab className={'add-button'} color="secondary" aria-label="Add" onClick={() => toggleModal(true)}>
                 <Icon>add</Icon>
