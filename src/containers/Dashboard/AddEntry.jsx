@@ -8,7 +8,7 @@ import { MuiPickersUtilsProvider, DatePicker, TimePicker } from 'material-ui-pic
 
 
 function AddEntry(props) {
-    const {projectsList, activityTypesList} = props;
+    const { projectsList, activityTypesList } = props;
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -24,7 +24,7 @@ function AddEntry(props) {
         setFn(event);
     }
 
-    const [projectId, setProject] = useState(20);
+    const [projectId, setProject] = useState(2);
 
     const handleProjectChange = (event) => {
         setProject(event.target.value);
@@ -34,6 +34,27 @@ function AddEntry(props) {
 
     const handleActivityChange = (event) => {
         setActivity(event.target.value);
+    }
+
+    function submitEntry() {
+        const data = {
+            startDate,
+            endDate,
+            'entries': [
+                {
+                    projectId,
+                    activityId,
+                    'startTime': startHour,
+                    'endTime': endHour
+                }
+            ]
+        };
+
+        console.log(data);
+
+        if (props.closeModal) {
+            props.closeModal();
+        }
     }
 
     return (
@@ -65,10 +86,7 @@ function AddEntry(props) {
                         onChange={handleProjectChange}
                         input={<Input name="project" id="project" />}
                     >
-                        <option value="" />
-                        <option value={10}>DA</option>
-                        <option value={20}>HEMS</option>
-                        <option value={30}>BEMS</option>
+                        {projectsList.map(project => <option value={project.id} key={project.id}>{project.name}</option>)}
                     </Select>
                 </div>
                 <p>Select Activity Type</p>
@@ -79,10 +97,7 @@ function AddEntry(props) {
                         onChange={handleActivityChange}
                         input={<Input name="activity" id="activity" />}
                     >
-                        <option value="" />
-                        <option value={10}>NWH</option>
-                        <option value={20}>Annual Leave</option>
-                        <option value={30}>Extra</option>
+                        {activityTypesList.map(activity => <option value={activity.id} key={activity.id}>{activity.name}</option>)}
                     </Select>
                 </div>
 
@@ -103,7 +118,7 @@ function AddEntry(props) {
                     />
                 </div>
 
-                <Button color="primary" onClick={() => { console.log('button clicked')}}>Submit</Button>
+                <Button color="primary" onClick={submitEntry}>Submit</Button>
             </div>
         </MuiPickersUtilsProvider>
     );
