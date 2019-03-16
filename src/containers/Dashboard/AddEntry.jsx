@@ -62,7 +62,7 @@ function AddEntry(props) {
 
             <div className="container">
                 <p>Select dates</p>
-                <div className="row">
+                <div className="row start">
                     <DatePicker
                         name="startDate"
                         margin="normal"
@@ -78,44 +78,49 @@ function AddEntry(props) {
                         onChange={handleDateChange(setEndDate)}
                     />
                 </div>
-                <p>Select Project</p>
-                <div className="row">
-                    <Select
-                        native
-                        value={projectId}
-                        onChange={handleProjectChange}
-                        input={<Input name="project" id="project" />}
-                    >
-                        {projectsList.map(project => <option value={project.id} key={project.id}>{project.name}</option>)}
-                    </Select>
-                </div>
-                <p>Select Activity Type</p>
-                <div className="row">
-                    <Select
-                        native
-                        value={activityId}
-                        onChange={handleActivityChange}
-                        input={<Input name="activity" id="activity" />}
-                    >
-                        {activityTypesList.map(activity => <option value={activity.id} key={activity.id}>{activity.name}</option>)}
-                    </Select>
-                </div>
 
                 <div className="row">
-                    <TimePicker
-                        name="startTime"
-                        margin="normal"
-                        label="Start Hour"
-                        value={startHour}
-                        onChange={handleTimeChange(setStartHour)}
-                    />
-                    <TimePicker
-                        name="endTime"
-                        margin="normal"
-                        label="End Hour"
-                        value={endHour}
-                        onChange={handleTimeChange(setEndHour)}
-                    />
+                    <div>
+                        <p>Select Activity Type</p>
+                        <Select
+                            native
+                            value={activityId}
+                            onChange={handleActivityChange}
+                            input={<Input name="activity" id="activity" />}
+                        >
+                            {activityTypesList.map(activity => <option value={activity.id} key={activity.id}>{activity.name}</option>)}
+                        </Select>
+                    </div>
+                    <div>
+                        <p>Select Project</p>
+                        <Select
+                            native
+                            value={projectId}
+                            onChange={handleProjectChange}
+                            input={<Input name="project" id="project" />}
+                        >
+                            {projectsList.map(project => <option value={project.id} key={project.id}>{project.name}</option>)}
+                        </Select>
+                    </div>
+                    <div className="resetTop">
+                        <p>Start Hour</p>
+                        <TimePicker
+                            name="startTime"
+                            margin="normal"
+                            value={startHour}
+                            onChange={handleTimeChange(setStartHour)}
+                        />
+                    </div>
+                    <div className="resetTop"> 
+                        <p>End Hour</p>                       
+                        <TimePicker
+                            name="endTime"
+                            margin="normal"
+                            value={endHour}
+                            onChange={handleTimeChange(setEndHour)}
+                        />
+                    </div>
+
                 </div>
 
                 <Button color="primary" onClick={submitEntry}>Submit</Button>
