@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "latest",
     "@material-ui/core": "^3.9.2",
     "query-string": "^6.4.0",
+    "date-fns": "next",
+    "material-ui-pickers": "^2.2.4",
+    "material-ui-time-picker": "^1.1.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router": "^4.4.0",
