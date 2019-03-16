@@ -47,11 +47,17 @@ const Login = ({ location, history }) => {
 
     return (
         <div className={'login'}>
-        
-            <Button className={'login-button'} variant="contained" size="large" color="default" onClick={handleLogin}>
-                Login
-                <Icon >fingerprint</Icon>
-            </Button>
+            <div className={'content'}>
+                <div>
+                    <h1>Welcome to E.ON</h1>
+                    <p>This is an application for filling timesheets (Chronos).</p>
+                </div>
+
+                <Button className={'login-button'} variant="contained" size="large" color="default" onClick={handleLogin}>
+                    Login
+                    <Icon>fingerprint</Icon>
+                </Button>
+            </div>
         </div>
     );
 }

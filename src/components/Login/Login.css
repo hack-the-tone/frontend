@@ -9,6 +9,24 @@
   border-top: 5px solid #1ea2b1;
 }
 
+.login .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+  max-width: 400px;
+}
+
+.login .content h1 {
+  border-bottom: 1px solid #fff;
+  padding: 10px 0;
+}
+
+.login .content div{
+  margin-right: 10%;
+}
+
 .login:after,
 .login:before {
   content: "";
