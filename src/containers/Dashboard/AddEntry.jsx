@@ -4,6 +4,8 @@ import DateFnsUtils from '@date-io/date-fns';
 import Input from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import {Icon} from '@material-ui/core';
 import { MuiPickersUtilsProvider, DatePicker, TimePicker } from 'material-ui-pickers';
 
 
@@ -54,12 +56,13 @@ function AddEntry(props) {
 
         if (props.closeModal) {
             props.closeModal();
+            props.triggerSnackBar();
         }
     }
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-
+            <h2>Add Entries</h2>
             <div className="container">
                 <p>Select dates</p>
                 <div className="row start">
@@ -120,7 +123,11 @@ function AddEntry(props) {
                             onChange={handleTimeChange(setEndHour)}
                         />
                     </div>
-
+                    <div>
+                        <Fab size="small" color="primary" aria-label="Add">
+                            <Icon>add</Icon>
+                        </Fab>
+                    </div>
                 </div>
 
                 <Button color="primary" onClick={submitEntry}>Submit</Button>
